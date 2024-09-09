@@ -1,28 +1,35 @@
 # I chose Xenopus tropicalis (Western clawed frog). Fun fact: members of the Xenopus genus were used in the 1930s as a pregnancy test, involving injecting urine into a live frog and seeing if she laid eggs. This method was highly accurate and in use until the 1950s. https://www.smithsonianmag.com/smart-news/doctors-used-to-use-live-african-frogs-as-pregnancy-tests-64279275/
 
-#Download the gff file
+# Set minimum feature count
+MIN_FEATURES=1000  # Adjust this number as needed
+
+# Download the gff file
 wget https://ftp.ensembl.org/pub/current_gff3/xenopus_tropicalis/Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3.gz
 
-#Unzip the gff file
+# Unzip the gff file
 gunzip Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3.gz
 
 #Remove metadata lines from the gff file
 cat Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3 | grep -v "^#" > cleaned_xenopus.gff
 
 # Count the number of features in the gff file
+echo "Number of features:"
 cat cleaned_xenopus.gff | wc -l
 
-# Count the number of chromosomes
-cat cleaned_xenopus.gff | cut -f 1 | sort-uniq-count-rank |head -n 15
+# Count the number of chromosomes/scaffolds with at least MIN_FEATURES features
+echo "Chromosomes/scaffolds with at least $MIN_FEATURES features:"
+cat cleaned_xenopus.gff | cut -f1 | sort | uniq -c | sort -nr | awk -v min=$MIN_FEATURES '$1 >= min'
 
 # Count the number of genes
+echo "Number of genes:"
 cat cleaned_xenopus.gff | cut -f 3 | grep "gene" | wc -l
 
 # Pull out the top 10 most common annotated features
-cat cleaned_xenopus.gff | cut -f 3 | sort-uniq-count-rank | head
+echo "Top 10 most common annotated features:"
+cat cleaned_xenopus.gff | cut -f 3 | sort | uniq -c | sort -nr | head
 
 
-#Expected results:
+# Expected results:
 #No. of features: 1492920
 #
 #No. of chromosomes: 10
@@ -57,4 +64,4 @@ cat cleaned_xenopus.gff | cut -f 3 | sort-uniq-count-rank | head
 #780     snRNA
 #535     rRNA
 
-## Looking over the annotation, I notice some thigns that raise question marks for me, so I would want to read over the genome report. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2994648/) I would expect to see close to the same number of five_prime_UTR and three_prime_UTR features, but there about a 10k discrepancy. Additionally, it seems odd to me that there are roughly 50,000 mRNA features annotated, but only between 20,000-24,000 gene features. Alternative splicing should give us a higher number of mRNA features, but it is surprising to me that it is more than 2x the annotated number of genes. 
+## Looking over the annotation, I notice some things that raise question marks for me, so I would want to read over the genome report. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2994648/) I would expect to see close to the same number of five_prime_UTR and three_prime_UTR features, but there about a 10k discrepancy. Additionally, it seems odd to me that there are roughly 50,000 mRNA features annotated, but only between 20,000-24,000 gene features. Alternative splicing should give us a higher number of mRNA features, but it is surprising to me that it is more than 2x the annotated number of genes.

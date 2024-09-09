@@ -1,0 +1,60 @@
+#Xenopus tropicalis (Western clawed frog) 
+#Members of the Xenopus genus were used in the 1930s as a pregnancy test.
+#https://www.smithsonianmag.com/smart-news/doctors-used-to-use-live-african-frogs-as-pregnancy-tests-64279275/
+
+#Download the gff file
+wget https://ftp.ensembl.org/pub/current_gff3/xenopus_tropicalis/Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3.gz
+
+#Unzip the gff file
+gunzip Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3.gz
+
+#Remove metadata lines from the gff file
+cat Xenopus_tropicalis.UCB_Xtro_10.0.112.gff3 | grep -v "^#" > cleaned_xenopus.gff
+
+# Count the number of features in the gff file
+cat cleaned_xenopus.gff | wc -l
+
+# Count the number of chromosomes
+cat cleaned_xenopus.gff | cut -f 1 | sort-uniq-count-rank |head -n 15
+
+# Count the number of genes
+cat cleaned_xenopus.gff | cut -f 3 | grep "gene" | wc -l
+
+# Pull out the top 10 most common annotated features
+cat cleaned_xenopus.gff | cut -f 3 | sort-uniq-count-rank | head
+
+
+#Expected results:
+#No. of features: 1492920
+#
+#No. of chromosomes: 10
+#195524  1
+#177280  2
+#173179  3
+#169997  4
+#162333  8
+#149708  5
+#138155  6
+#135136  7
+#112981  9
+#77391   10
+#125     AAMC04000021.1
+#125     MT
+#59      AAMC04000022.1
+#55      AAMC04000030.1
+#50      AAMC04000014.1
+#   
+#No. of genes:   
+#   24619
+#
+#Most common annotated features:
+#598775  exon
+#557717  CDS
+#138467  biological_region
+#68097   five_prime_UTR
+#52784   three_prime_UTR
+#49787   mRNA
+#22107   gene
+#2023    ncRNA_gene
+#780     snRNA
+#535     rRNA

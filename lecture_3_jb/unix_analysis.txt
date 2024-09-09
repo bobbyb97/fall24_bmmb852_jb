@@ -42,13 +42,7 @@ cat cleaned_xenopus.gff | cut -f 3 | sort | uniq -c | sort -nr | head
 #138155  6
 #135136  7
 #112981  9
-#77391   10
-#125     AAMC04000021.1
-#125     MT
-#59      AAMC04000022.1
-#55      AAMC04000030.1
-#50      AAMC04000014.1
-#   
+#77391   10 
 #No. of genes:   
 #   24619
 #

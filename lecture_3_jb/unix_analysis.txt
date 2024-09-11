@@ -1,3 +1,5 @@
+# https://github.com/bobbyb97/fall24_bmmb852_jb/blob/main/lecture_3_jb/unix_analysis.txt
+
 # I chose Xenopus tropicalis (Western clawed frog). Fun fact: members of the Xenopus genus were used in the 1930s as a pregnancy test, involving injecting urine into a live frog and seeing if she laid eggs. This method was highly accurate and in use until the 1950s. https://www.smithsonianmag.com/smart-news/doctors-used-to-use-live-african-frogs-as-pregnancy-tests-64279275/
 
 # Set minimum feature count

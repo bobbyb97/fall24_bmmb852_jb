@@ -1,0 +1,13 @@
+
+.DS_Store
+hw_3/b_impatiens_genes.gff3
+hw_3/md5sum.txt
+hw_3/ncbi_dataset.zip
+hw_3/ncbi_dataset/data/assembly_data_report.jsonl
+hw_3/ncbi_dataset/data/dataset_catalog.json
+hw_3/ncbi_dataset/data/GCF_000188095.3/genomic.gff
+hw_3/README.md
+hw_3/b_impatiens_genes.gff
+hw_3/ncbi_dataset/data/GCF_000188095.3/GCF_000188095.3_BIMP_2.2_genomic.fna
+hw_3/ncbi_dataset/data/GCF_000188095.3/GCF_000188095.3_BIMP_2.2_genomic.fna.fai
+hw_3/ncbi_dataset/data/GCF_000188095.3/genomic.sorted.gff

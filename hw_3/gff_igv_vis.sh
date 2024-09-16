@@ -13,3 +13,7 @@ cat ncbi_dataset/data/GCF_000188095.3/genomic.gff | awk '$3 == "gene"' > b_impat
 # Quick count of annotated genes
 echo "Number of annotated genes:"
 cat b_impatiens_genes.gff|wc -l
+
+
+#Github link
+#https://github.com/bobbyb97/fall24_bmmb852_jb/blob/main/hw_3/gff_igv_vis.md

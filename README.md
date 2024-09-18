@@ -1,1 +1,1 @@
-# Collection of assignments for BMMB 852.
+Collection of assignments for BMMB 852.

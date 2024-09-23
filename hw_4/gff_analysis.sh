@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# This script will download a gff file from NCBI and print out a basic summary
+
+
 # Defining variables
-GENOME="GCF_000188095.3" # Example: GENOME=GCF_000188095.3
+GENOME="GCF_000188095.3" # Replace with your desired accession
 OUT_DIR=~ # Default output directory is home directory, change if desired
 
 ##--NOTHING BELOW THIS LINE SHOULD BE MODIFIED--##

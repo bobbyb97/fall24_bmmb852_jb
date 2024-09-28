@@ -72,25 +72,28 @@ Compress the files and report how much space that saves.
 
 * Each file is 10 MB now, so in total I saved 96 MB
 
+You can get the same coverage with different paramaters, you will just need to adjust accordingly. 
+For example, if dealing with 50 bp reads you would need to generate twice as many reads compared to 100 bp to obtain 10X coverage (~950k in this case). 
+
 ##### 3. How much data would be generated when covering the Yeast,  the Drosophila or the Human genome at 30x?
 
 Human genome
 
 * FASTA size: 3.1 GB
-* FASTQ reads: 103333333
+* FASTQ reads: 103.3 million
 * FASTQ size (uncompressed): 90 GB
 * FASTQ size (compressed): 15.3 GB 
 
 Drosophila genome
 
 * FASTA size: 180 MB
-* FASTQ reads: 54000000
+* FASTQ reads: 54 million
 * FASTQ size (uncompressed): 5.4 GB
 * FASTQ size (compressed): 931 MB
 
 Yeast genome:
 
 * FASTA size: 12.1 MB
-* FASTQ reads: 3621000
+* FASTQ reads: 3.6 million
 * FASTQ size (uncompressed): 363 MB
 * FASTQ size (compressed): 62 MB

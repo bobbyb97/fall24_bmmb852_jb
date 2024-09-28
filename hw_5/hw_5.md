@@ -71,3 +71,26 @@ How big are the FASTQ files?
 Compress the files and report how much space that saves.
 
 * Each file is 10 MB now, so in total I saved 96 MB
+
+##### 3. How much data would be generated when covering the Yeast,  the Drosophila or the Human genome at 30x?
+
+Human genome
+
+* FASTA size: 3.1 GB
+* FASTQ reads: 103333333
+* FASTQ size (uncompressed): 90 GB
+* FASTQ size (compressed): 15.3 GB 
+
+Drosophila genome
+
+* FASTA size: 180 MB
+* FASTQ reads: 54000000
+* FASTQ size (uncompressed): 5.4 GB
+* FASTQ size (compressed): 931 MB
+
+Yeast genome:
+
+* FASTA size: 12.1 MB
+* FASTQ reads: 3621000
+* FASTQ size (uncompressed): 363 MB
+* FASTQ size (compressed): 62 MB

@@ -4,8 +4,8 @@
 
 
 # Defining variables
-GENOME="GCF_000188095.3" # Replace with your desired accession
-OUT_DIR=~ # Default output directory is home directory, change if desired
+GENOME="GCA_017312745.1" # Replace with your desired accession
+OUT_DIR=~/Desktop/ # Default output directory is home directory, change if desired
 
 ##--NOTHING BELOW THIS LINE SHOULD BE MODIFIED--##
 
@@ -30,6 +30,9 @@ unzip ${OUT_DIR}/bmmb_852_tmp/ncbi_dataset.zip -d ${OUT_DIR}/bmmb_852_tmp
 # Separate genes into a different file.
 cat ${OUT_DIR}/bmmb_852_tmp/ncbi_dataset/data/${GENOME}/*.gff | awk '$3 == "gene"' > ${OUT_DIR}/bmmb_852_tmp/${GENOME}_genes.gff
 
+# Count ncRNA
+cat ${OUT_DIR}/bmmb_852_tmp/ncbi_dataset/data/${GENOME}/*.gff | awk '$3 == "non-coding"' > ${OUT_DIR}/bmmb_852_tmp/${GENOME}_ncRNA.gff
+
 # Quick count of annotated genes
 echo "Number of annotated genes:"
 cat ${OUT_DIR}/bmmb_852_tmp/${GENOME}_genes.gff|wc -l
@@ -38,9 +41,9 @@ cat ${OUT_DIR}/bmmb_852_tmp/${GENOME}_genes.gff|wc -l
 echo "Top 10 most frequent annotation features:"
 cat ${OUT_DIR}/bmmb_852_tmp/ncbi_dataset/data/${GENOME}/*.gff | grep -v "^#" | awk '{print $3}' | sort | uniq -c | sort -nr | head -n 10
 
-# Remove the temporary directory
-echo "Removing the temporary directory...done"
-rm -rf ${OUT_DIR}/bmmb_852_tmp
+# # Remove the temporary directory
+# echo "Removing the temporary directory...done"
+# rm -rf ${OUT_DIR}/bmmb_852_tmp
 
 else
     echo "ERROR: Make sure you run 'conda activate bioinfo' before running this script."
